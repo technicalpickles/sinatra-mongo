@@ -1,6 +1,35 @@
 = sinatra-mongo
 
-Description goes here.
+Extends Sinatra with an extension method for dealing with monogodb using the ruby driver.
+
+
+Install it with gem:
+
+    $ gem install sinatra-mongo
+
+Now we can use it an example application.
+
+    require 'sinatra'
+    require 'sinatra/mongo'
+    
+    # Specify the database to use. Defaults to mongo://localhost:27017/default, so you will almost definitely want to change this.
+    set :mongo, 'mongo://localhost:27017/sinatra-mongo-example'
+    
+    # At this point, you can access the Mongo::Database object using the 'mongo' helper:
+    
+    puts mongo["testCollection"].insert {"name" => "MongoDB", "type" => "database", "count" => 1, "info" => {"x" => 203, "y" => '102'}}
+    
+    get '/' do
+      mongo["testCollection"].find_one
+    end
+
+If you need to use authentication, you can specify this in the mongo uri:
+
+    set :mongo, 'mongo://myuser:mypass@localhost:27017/sinatra-mongo-example'
+
+== Mongo Reference
+
+ * http://www.mongodb.org/display/DOCS/Ruby+Tutorial
 
 == Note on Patches/Pull Requests
  

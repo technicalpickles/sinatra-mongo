@@ -29,7 +29,7 @@ module Sinatra
     protected
 
     def self.registered(app)
-      app.set :mongo_url, ENV['MONGO_URL'] || 'mongo://127.0.0.1:3000/default'
+      app.set :mongo_url, ENV['MONGO_URL'] || 'mongo://127.0.0.1:27017/default'
       app.helpers MongoHelper
     end
 
