@@ -10,6 +10,7 @@ begin
     gem.email = "josh@technicalpickles.com"
     gem.homepage = "http://github.com/technicalpickles/sinatra-mongo"
     gem.authors = ["Joshua Nichols"]
+    gem.version = "0.0.1"
     gem.add_development_dependency "rspec", ">= 1.2.9"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
