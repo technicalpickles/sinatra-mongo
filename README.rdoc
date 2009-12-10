@@ -12,7 +12,10 @@ Now we can use it an example application.
     require 'sinatra'
     require 'sinatra/mongo'
     
-    # Specify the database to use. Defaults to mongo://localhost:27017/default, so you will almost definitely want to change this.
+    # Specify the database to use. Defaults to mongo://localhost:27017/default,
+    # so you will almost definitely want to change this.
+    #
+    # Alternatively, you can specify the MONGO_URL as an environment variable
     set :mongo, 'mongo://localhost:27017/sinatra-mongo-example'
     
     # At this point, you can access the Mongo::Database object using the 'mongo' helper:
