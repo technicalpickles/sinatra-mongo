@@ -1,4 +1,5 @@
 require 'sinatra'
+require 'mongo'
 
 module Sinatra
   module MongoHelper
