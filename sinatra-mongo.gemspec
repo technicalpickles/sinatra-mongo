@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Joshua Nichols"]
-  s.date = %q{2009-12-09}
+  s.date = %q{2009-12-10}
   s.description = %q{= sinatra-mongo
 
 Extends Sinatra with an extension method for dealing with monogodb using the ruby driver.
@@ -72,6 +72,7 @@ Copyright (c) 2009 Joshua Nichols. See LICENSE for details.
      "README.rdoc",
      "Rakefile",
      "lib/sinatra/mongo.rb",
+     "sinatra-mongo.gemspec",
      "spec/sinatra-mongo_spec.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb"

@@ -10,7 +10,7 @@ begin
     gem.email = "josh@technicalpickles.com"
     gem.homepage = "http://github.com/technicalpickles/sinatra-mongo"
     gem.authors = ["Joshua Nichols"]
-    gem.version = "0.0.1"
+    gem.version = "0.0.2"
     gem.add_development_dependency "rspec", ">= 1.2.9"
     gem.add_dependency "mongo"
     gem.add_dependency 'sinatra',    '>= 0.9.4'
