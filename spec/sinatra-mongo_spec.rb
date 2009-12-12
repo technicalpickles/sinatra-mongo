@@ -35,5 +35,23 @@ describe "Sinatra::MongoExtension" do
     end
   end
 
+  describe '#mongo=' do
+    before(:each) do
+      @mongo_uri = 'mongo://127.0.0.1:27017/test'
+      @mongo = mock('mongo')
+      @app.stub!(:mongo).and_return(@mongo)
+    end
+
+    it 'sets the mongo_url environment variable' do
+      @app.mongo = @mongo_uri
+      @app.mongo_url.should == @mongo_uri
+    end
+
+    it 'calls the #mongo method' do
+      @app.should_receive(:mongo)
+      @app.mongo = @mongo_uri
+    end
+  end
+
 
 end
