@@ -21,16 +21,14 @@ describe "Sinatra::MongoExtension" do
 
     context 'mongo_url is set' do
       before(:each) do
-        #@app.mongo  = 'mongo://127.0.0.1:1111/test'
-        #@connection = mock('connection')
-        #@mongo      = mock('mongo')
-        #Mongo::Connection.stub!(:new).and_return(@connection)
-        #@connection.stub!(:db).with('test').and_return(@mongo)
+        @mongo_url = 'mongo://127.0.0.1:27017/test'
+        @app.mongo  = @mongo_url
       end
 
       it 'creates the Mongo::DB instance with the supplied uri' do
-        pending
-        #@app.mongo.connection.port.should == 1111
+        @app.mongo.connection.host.should == '127.0.0.1'
+        @app.mongo.connection.port.should == 27017
+        @app.mongo.name.should == 'test'
       end
     end
   end
