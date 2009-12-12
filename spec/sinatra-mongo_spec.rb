@@ -54,4 +54,34 @@ describe "Sinatra::MongoExtension" do
   end
 
 
+
+end
+
+
+describe 'registration of the extension' do
+  before(:each) do
+    @app = Sinatra.new
+  end
+
+  it 'sets the mongo_url variable' do
+    @app.register(Sinatra::MongoExtension)
+    @app.mongo_url.should == 'mongo://127.0.0.1:27017/default'
+  end
+
+  context "ENV['MONGO_URL'] is set" do
+    before(:each) do
+      @mongo_url = 'mongo://127.0.0.1:27017/via_mongo_url_env'
+      ENV['MONGO_URL'] = @mongo_url
+      @app.register(Sinatra::MongoExtension)
+    end
+    it 'sets the mongo_url variable to the value of the env variable' do
+      @app.mongo_url.should == @mongo_url
+    end
+  end
+
+  it 'calls helpers with MongoHelper' do
+    @app.should_receive(:helpers).with(Sinatra::MongoHelper)
+    @app.register(Sinatra::MongoExtension)
+  end
+
 end
