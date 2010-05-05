@@ -20,7 +20,7 @@ module Sinatra
         @mongo ||= (
           url = URI(mongo_url)
           connection = Mongo::Connection.new(url.host, url.port)
-          mongo = connection.db(url.path[1..-1])
+          mongo = connection.db(url.path[1..-1], mongo_settings)
           if url.user && url.password
             mongo.authenticate(url.user, url.password)
           end
@@ -33,6 +33,7 @@ module Sinatra
 
     def self.registered(app)
       app.set :mongo_url, ENV['MONGO_URL'] || 'mongo://127.0.0.1:27017/default'
+      app.set :mongo_settings, Hash.new
       app.helpers MongoHelper
     end
 
