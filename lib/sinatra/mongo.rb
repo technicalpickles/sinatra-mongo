@@ -16,15 +16,17 @@ module Sinatra
     end
 
     def mongo
-      @mongo ||= (
-        url = URI(mongo_url)
-        connection = Mongo::Connection.new(url.host, url.port)
-        mongo = connection.db(url.path[1..-1])
-        if url.user && url.password
-          mongo.authenticate(url.user, url.password)
-        end
-        mongo
-      )
+      synchronize do
+        @mongo ||= (
+          url = URI(mongo_url)
+          connection = Mongo::Connection.new(url.host, url.port)
+          mongo = connection.db(url.path[1..-1])
+          if url.user && url.password
+            mongo.authenticate(url.user, url.password)
+          end
+          mongo
+        )
+      end
     end
 
     protected
