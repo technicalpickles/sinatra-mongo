@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{sinatra-mongo}
-  s.version = "0.0.2"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Joshua Nichols"]
-  s.date = %q{2009-12-10}
+  s.date = %q{2010-05-06}
   s.description = %q{= sinatra-mongo
 
 Extends Sinatra with an extension method for dealing with monogodb using the ruby driver.
@@ -63,28 +63,40 @@ Copyright (c) 2009 Joshua Nichols. See LICENSE for details.
   s.email = %q{josh@technicalpickles.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README.rdoc"
+    "README.rdoc"
   ]
   s.files = [
     ".document",
-     ".gitignore",
-     "LICENSE",
-     "README.rdoc",
-     "Rakefile",
-     "lib/sinatra/mongo.rb",
-     "sinatra-mongo.gemspec",
-     "spec/sinatra-mongo_spec.rb",
-     "spec/spec.opts",
-     "spec/spec_helper.rb"
+    ".gitignore",
+    "LICENSE",
+    "README.rdoc",
+    "Rakefile",
+    "lib/sinatra/mongo.rb",
+    "sinatra-mongo.gemspec",
+    "spec/fixtures/classic_app.rb",
+    "spec/fixtures/modular_app.rb",
+    "spec/sinatra-mongo_classic_style_spec.rb",
+    "spec/sinatra-mongo_modular_style_spec.rb",
+    "spec/sinatra-mongo_spec.rb",
+    "spec/spec.opts",
+    "spec/spec_helper.rb",
+    "spec/support/rack_test.rb",
+    "spec/support/shared_examples.rb"
   ]
   s.homepage = %q{http://github.com/technicalpickles/sinatra-mongo}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.3.5}
+  s.rubygems_version = %q{1.3.6}
   s.summary = %q{A light extension to sinatra for using mongo}
   s.test_files = [
+    "spec/fixtures/classic_app.rb",
+    "spec/fixtures/modular_app.rb",
+    "spec/sinatra-mongo_classic_style_spec.rb",
+    "spec/sinatra-mongo_modular_style_spec.rb",
     "spec/sinatra-mongo_spec.rb",
-     "spec/spec_helper.rb"
+    "spec/spec_helper.rb",
+    "spec/support/rack_test.rb",
+    "spec/support/shared_examples.rb"
   ]
 
   if s.respond_to? :specification_version then
@@ -93,15 +105,18 @@ Copyright (c) 2009 Joshua Nichols. See LICENSE for details.
 
     if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
       s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
+      s.add_development_dependency(%q<rack-test>, [">= 0.5.3"])
       s.add_runtime_dependency(%q<mongo>, [">= 0"])
       s.add_runtime_dependency(%q<sinatra>, [">= 0.9.4"])
     else
       s.add_dependency(%q<rspec>, [">= 1.2.9"])
+      s.add_dependency(%q<rack-test>, [">= 0.5.3"])
       s.add_dependency(%q<mongo>, [">= 0"])
       s.add_dependency(%q<sinatra>, [">= 0.9.4"])
     end
   else
     s.add_dependency(%q<rspec>, [">= 1.2.9"])
+    s.add_dependency(%q<rack-test>, [">= 0.5.3"])
     s.add_dependency(%q<mongo>, [">= 0"])
     s.add_dependency(%q<sinatra>, [">= 0.9.4"])
   end
