@@ -16,7 +16,9 @@ module Sinatra
     end
 
     def mongo
-      synchronize do
+      return @mongo unless @mongo.nil?
+      @mongo_lock ||= Mutex.new
+      @mongo_lock.synchronize do
         @mongo ||= (
           url = URI(mongo_url)
           connection = Mongo::Connection.new(url.host, url.port)
