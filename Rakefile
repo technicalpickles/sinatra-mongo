@@ -11,7 +11,7 @@ begin
     gem.homepage = "http://github.com/technicalpickles/sinatra-mongo"
     gem.authors = ["Joshua Nichols"]
     gem.version = "0.1.0"
-    gem.add_development_dependency "rspec", ">= 1.2.9"
+    gem.add_development_dependency "rspec", "~> 1.3"
     gem.add_development_dependency "rack-test", ">= 0.5.3"
     gem.add_dependency "mongo"
     gem.add_dependency 'sinatra',    '>= 0.9.4'
