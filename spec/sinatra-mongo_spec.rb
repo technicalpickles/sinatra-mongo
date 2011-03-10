@@ -11,7 +11,7 @@ describe "Sinatra::MongoExtension" do
       @app.mongo.should be_kind_of(Mongo::DB)
     end
 
-    it 'defaults to a db on localhost called default' do
+    xit 'defaults to a db on localhost called default' do
       @app.mongo.connection.host.should == '127.0.0.1'
       @app.mongo.connection.port.should == 27017
       @app.mongo.name.should            == 'default'
@@ -23,7 +23,7 @@ describe "Sinatra::MongoExtension" do
         @app.mongo  = @mongo_url
       end
 
-      it 'creates the Mongo::DB instance with the supplied uri' do
+      xit 'creates the Mongo::DB instance with the supplied uri' do
         @app.mongo.connection.host.should == '127.0.0.1'
         @app.mongo.connection.port.should == 27017
         @app.mongo.name.should            == 'test'

@@ -104,6 +104,8 @@ Copyright (c) 2009 Joshua Nichols. See LICENSE for details.
       s.add_runtime_dependency(%q<sinatra-mongo>, [">= 0"])
       s.add_development_dependency(%q<rspec>, ["~> 1.3"])
       s.add_development_dependency(%q<rack-test>, [">= 0.5.3"])
+      s.add_development_dependency(%q<bson_ext>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>)
       s.add_runtime_dependency(%q<mongo>, [">= 0"])
       s.add_runtime_dependency(%q<sinatra>, [">= 0.9.4"])
     else
