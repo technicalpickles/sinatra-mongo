@@ -48,6 +48,15 @@ describe "Sinatra::MongoExtension" do
       @app.mongo = @mongo_uri
     end
   end
+
+  describe '#mongo_replicaset_config=' do
+    it 'should works' do
+      @app.mongo_replicaset_config = {:hosts => [['127.0.0.1', 27017]],
+        :database => 'default'}
+      @app.mongo
+    end
+
+  end
 end
 
 describe 'registration of the extension' do
