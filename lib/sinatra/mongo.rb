@@ -41,7 +41,7 @@ module Sinatra
             read_secondary = @mongo_replicaset_config[:read_secondary] || false
             raise "hosts required" if hosts.nil?
             raise "database required" if database.nil?
-            connection = Mongo::ReplSetConnection.new(hosts, :read_secondary => read_secondary)
+            connection = Mongo::ReplSetConnection.new(*hosts, :read_secondary => read_secondary)
             mongo = connection.db(database, mongo_settings)
             username = @mongo_replicaset_config[:username]
             password = @mongo_replicaset_config[:password]
