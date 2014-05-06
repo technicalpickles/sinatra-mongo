@@ -4,7 +4,7 @@ require 'mongo'
 module Sinatra
   module MongoHelper
     def mongo
-      options.mongo
+      settings.mongo
     end
   end
 
